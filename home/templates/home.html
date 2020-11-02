@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Gestão de equipamentos</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Seja Bem vindo!</h1>
+
+    {% if user.is_authenticated %}
+      <a href="{% url 'logout'%}"> logout </a>
+      <p>Bem vindo {{ user.username }}</p>
+    {% else %}
+       <a href="{% url 'login'%}"> Sing in </a>
+    {% endif %}
+  </body>
+</html>

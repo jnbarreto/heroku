@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>equipamentos</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+  <a href={% url 'logout' %}>Deslogar </a>
+    <h1>Seja Bem vindo ao gerenciamento de equipamentos!</h1>
+
+    <h2>Lista de equipamentos cadastrados</h2>
+    <ul>
+      {% for equipamento in lista %}
+        <li>
+          <a href="{% url 'atualizar_equipamento' equipamento.id %}">{{ equipamento }}</a>
+          <a href="{% url 'deleta_equipamento' equipamento.id %}">Deletar</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'novo_equipamento' %}"> + Novo equipamento </a>
+  </body>
+</html>

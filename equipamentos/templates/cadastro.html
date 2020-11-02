@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>equipamentos</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h2>cadastre um novo equipamento</h2>
+    <form action="{% url 'novo_equipamento'%}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Salvar</button>
+    </form>
+  </body>
+</html>
