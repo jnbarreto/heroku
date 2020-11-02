@@ -1,4 +1,4 @@
-import inviron
+import environ
 
 from app.settings.base import *
 
