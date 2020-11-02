@@ -1,0 +1,2 @@
+-r requeriments-dev.txt
+gunicorn
