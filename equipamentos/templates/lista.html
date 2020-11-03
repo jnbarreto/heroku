@@ -1,22 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <title>equipamentos</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-  <a href={% url 'logout' %}>Deslogar </a>
-    <h1>Seja Bem vindo ao gerenciamento de equipamentos!</h1>
+{% extends 'base.html' %}
 
-    <h2>Lista de equipamentos cadastrados</h2>
-    <ul>
-      {% for equipamento in lista %}
-        <li>
-          <a href="{% url 'atualizar_equipamento' equipamento.id %}">{{ equipamento }}</a>
-          <a href="{% url 'deleta_equipamento' equipamento.id %}">Deletar</a>
-        </li>
-      {% endfor %}
-    </ul>
-    <a href="{% url 'novo_equipamento' %}"> + Novo equipamento </a>
-  </body>
-</html>
+  {% block title %}Equipamentos{% endblock%}
+
+  {% block content%}
+    <div class="container home">
+      <a class="btn btn-default r" href={% url 'logout' %}>Sign Out</a>
+      <div class="row">
+
+        <div class="col-xs-12">
+          <h1>Lista de equipamentos cadastrados</h1>
+        </div>
+
+        <div class="col-xs-12">
+          <a class="btn btn-success " href="{% url 'novo_equipamento' %}"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+        </div>
+
+        <div class="col-xs-12">
+          <ul class="list-group">
+            {% for equipamento in lista %}
+              <li class="list-group-item ">
+                <a href="{% url 'atualizar_equipamento' equipamento.id %}">{{ equipamento }}</a>
+                <a class="r" href="{% url 'deleta_equipamento' equipamento.id %}" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+    <footer class="footer mt-auto py-3">
+      <div class="containered">
+        <span class="text-muted">Gestão de Equipamentos 2020</span>
+      </div>
+    </footer>
+  {% endblock %}

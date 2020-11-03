@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <title>equipamentos</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-  <h2>Login</h2>
-    <form method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Login</button>
-    </form>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+  {% block title %}Sign in{% endblock%}
+
+  {% block content%}
+  <div class="row">
+    <div class="col-xs-6 col-sm-4">
+    </div>
+
+    <div class="col-xs-6 col-sm-4 signin">
+      <h2>Sign in </h2>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button class="btn btn-success btn-block" type="submit"> Sign in </button>
+      </form>
+    </div>
+
+    <div class="col-xs-6 col-sm-4">
+    </div>
+  </div>
+  {% endblock %}

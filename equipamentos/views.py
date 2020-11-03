@@ -25,7 +25,7 @@ def atualizar_equipamento(request, id):
     if form.is_valid():
         form.save()
         return redirect('lista')
-    return render(request, 'atualiza.html', {'form': form})
+    return render(request, 'atualiza.html', {'form': form, 'equip':equip})
 
 @login_required
 def deleta_equipamento(request, id):
