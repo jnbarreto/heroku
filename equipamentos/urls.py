@@ -3,13 +3,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
-from .views import lista_equipamentos, novo_equipamento, atualizar_equipamento, deleta_equipamento
-
+from equipamentos import urls as equip_urls
+from .views import ListEquipamentos, NewEquipamento, UpdateEquipamento
+from .views import DetailEquipamentos, DeleteEquipamento
 urlpatterns = [
 
-    path('lista/', lista_equipamentos, name='lista'),
-    path('novo/', novo_equipamento, name='novo_equipamento'),
-    path('atualizar/<int:id>/', atualizar_equipamento, name='atualizar_equipamento'),
-    path('deleta/<int:id>/', deleta_equipamento, name='deleta_equipamento')
+    path('list/', ListEquipamentos.as_view(), name='list'),
+    path('detail/<int:pk>/', DetailEquipamentos.as_view(), name='detail'),
+    path('new/', NewEquipamento.as_view(), name='new'),
+    path('update/<int:pk>', UpdateEquipamento.as_view(), name='update'),
+    path('delete/<int:pk>', DeleteEquipamento.as_view(), name='delete')
 ]

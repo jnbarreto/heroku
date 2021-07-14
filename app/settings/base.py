@@ -139,4 +139,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = 'lista'
+LOGIN_REDIRECT_URL = 'list'
