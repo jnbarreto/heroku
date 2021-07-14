@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+  {% block title %}Equipamentos{% endblock%}
+{% block content%}
+    <div class="container home">
+        <a class="btn btn-default r" href={% url 'logout' %}>Sign Out</a>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Detalhes do equipamento</h1>
+            </div>
+            <div class="col-xs-12">
+                <ul class="list-group">
+                    <li class="list-group-item b">
+                    <br>
+                    <h3>Tipo: {{ object.tipo}}</h3>
+                    <h3>Marca: {{ object.marca}}</h3>
+                    <h3>Modelo: {{ object.modelo}}</h3>
+                    <h3>Número de controle: {{ object.num_controle}}</h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <a class="btn btn-default" href={% url 'list' %}>Voltar</a>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer mt-auto py-3">
+        <div class="containered">
+            <span class="text-muted">Gestão de Equipamentos 2021</span>
+        </div>
+    </footer>
+{% endblock %}

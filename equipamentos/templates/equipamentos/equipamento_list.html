@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+  {% block title %}Equipamentos{% endblock%}
+
+  {% block content%}
+    <div class="container home">
+      <a class="btn btn-default r" href={% url 'logout' %}>Sign Out</a>
+      <div class="row">
+
+        <div class="col-xs-12">
+          <h1>Lista de equipamentos cadastrados</h1>
+        </div>
+
+        <div class="col-xs-12">
+          <a class="btn btn-success " href="{% url 'new' %}"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+        </div>
+
+        <div class="col-xs-12">
+          <ul class="list-group">
+            {% for equipamento in object_list %}
+              <li class="list-group-item ">
+                <a href="{% url 'update' equipamento.pk %}">{{ equipamento }}</a>
+                <a class="r" href="{% url 'detail' equipamento.pk %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></a>
+                <a class="r" href="{% url 'delete' equipamento.pk %}" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+    <footer class="footer mt-auto py-3">
+      <div class="containered">
+        <span class="text-muted">Gestão de Equipamentos 2021</span>
+      </div>
+    </footer>
+  {% endblock %}
